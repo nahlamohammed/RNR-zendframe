@@ -11,6 +11,7 @@ class Application_Form_Thread extends Zend_Form {
         $title->setRequired();
 
         $body = new Zend_Form_Element_Textarea("body");
+        $body->setAttrib("class", "form-control");
         $body->setAttrib("placeholder", "Write body here....");
         $body->setLabel("Body: ");
         $body->setAttrib("rows", "5");
@@ -22,15 +23,23 @@ class Application_Form_Thread extends Zend_Form {
         $picture->setRequired();
         $picture->setDestination('/var/www/html/RNR/public/images/thread');
 
+     $stick=new Zend_Form_Element_Radio("stick");
+        $stick->setLabel("Sticky:");
+        $stick->addMultiOption("on", "on");
+        $stick->addMultiOption("off", "off");
+        $stick->setRequired();
+
 
         $id = new Zend_Form_Element_Hidden("id");
         $submit = new Zend_Form_Element_Submit("Submit");
         $submit->setAttrib("class", "btn btn-primary");
+                $submit->setLabel("Save");
+
 
         $rest = new Zend_Form_Element_Submit('Rest');
-        $rest->setAttrib("class", "btn btn-success");
+        $rest->setAttrib("class","btn btn-info");
 
-        $this->addElements(array($id, $title, $body,$picture, $submit, $rest));
+        $this->addElements(array($id, $title, $body,$picture,$stick, $submit, $rest));
     }
 
 }

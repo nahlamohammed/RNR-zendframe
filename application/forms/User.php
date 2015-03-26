@@ -58,8 +58,10 @@ class Application_Form_User extends Zend_Form {
         $id = new Zend_Form_Element_Hidden("id");
         $submit = new Zend_Form_Element_Submit("Submit");
         $submit->setAttrib("class", "btn btn-primary");
+                $submit->setLabel("Save");
+
         $rest = new Zend_Form_Element_Reset('Reset');
-        $rest->setAttrib("class", "btn btn-success");
+        $rest->setAttrib("class", "btn btn-info");
         $this->addElements(array($id, $username, $email, $password, $country, $gender, $profilePicture, $signature, $submit, $rest));
 
 
